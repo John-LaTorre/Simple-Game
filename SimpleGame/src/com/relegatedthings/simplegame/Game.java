@@ -14,13 +14,16 @@ public class Game extends Canvas implements Runnable {
 	 */
 	private static final long serialVersionUID = 539556138993900181L;
 	
-	private static final int WIDTH = 640, HEIGHT = WIDTH / 12 * 9;
+	public static final int WIDTH = 640;
+
+	public static final int HEIGHT = WIDTH / 12 * 9;
 	
 	private Thread thread;
 	private boolean running = false;
 	
 	private Random r;
 	private Handler handler;
+	private HUD hud;
 	
 	public Game() {
 		
@@ -29,9 +32,11 @@ public class Game extends Canvas implements Runnable {
 		
 		new Window(WIDTH, HEIGHT, "Simple Game", this);
 		
+		hud = new HUD();
 		r = new Random();
 		
 		handler.addObject(new Player(WIDTH/2 - 32, HEIGHT/2 -32, ID.Player));
+		handler.addObject(new BasicEnemy(WIDTH/2 - 32, HEIGHT/2 -32, ID.BasicEnemy));
 		
 	}
 	public synchronized void start() {
@@ -50,6 +55,7 @@ public class Game extends Canvas implements Runnable {
 	}
 	
 	public void run() {
+		this.requestFocus();
 		//Game loop
 		long lastTime = System.nanoTime();
 		double amountOfTicks = 60.0;
@@ -82,6 +88,7 @@ public class Game extends Canvas implements Runnable {
 	
 	private void tick() {
 		handler.tick();
+		hud.tick();
 	}
 	
 	private void render() {
@@ -97,8 +104,27 @@ public class Game extends Canvas implements Runnable {
 		
 		handler.render(g);
 		
+		hud.render(g);
+		
 		g.dispose();
 		bs.show();
+	}
+	
+	/**
+	 * This restricts the object to the game room
+	 * @param var
+	 * @param min
+	 * @param max
+	 * @return
+	 */
+	public static int clamp(int var, int min, int max) {
+		if(var >= max) {
+			return var = max;
+		} else if (var <= min) {
+			return var = min;
+		} else {
+			return var;
+		}
 	}
 	public static void main(String args[]) {
 		new Game();
