@@ -129,6 +129,16 @@ public class Game extends Canvas implements Runnable {
 			return var;
 		}
 	}
+	
+	public static float clamp(float var, float min, float max) {
+		if(var >= max) {
+			return var = max;
+		} else if (var <= min) {
+			return var = min;
+		} else {
+			return var;
+		}
+	}
 	public static void main(String args[]) {
 		new Game();
 	}

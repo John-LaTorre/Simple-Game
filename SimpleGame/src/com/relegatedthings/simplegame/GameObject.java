@@ -5,11 +5,11 @@ import java.awt.Rectangle;
 
 public abstract class GameObject {
 	
-	protected int x, y;
+	protected float x, y;
 	protected ID id;
-	protected int velX, velY;
+	protected float velX, velY;
 	
-	public GameObject( int x, int y, ID id) {
+	public GameObject(float x, float y, ID id) {
 		this.x = x;
 		this.y = y;
 		this.id = id;
@@ -23,7 +23,7 @@ public abstract class GameObject {
 	 * Gets the x position
 	 * @return the x
 	 */
-	public int getX() {
+	public float getX() {
 		return x;
 	}
 
@@ -31,7 +31,7 @@ public abstract class GameObject {
 	 * Sets the x position
 	 * @param x the x to set
 	 */
-	public void setX(int x) {
+	public void setX(float x) {
 		this.x = x;
 	}
 
@@ -39,7 +39,7 @@ public abstract class GameObject {
 	 * Gets the y position
 	 * @return the y
 	 */
-	public int getY() {
+	public float getY() {
 		return y;
 	}
 
@@ -47,7 +47,7 @@ public abstract class GameObject {
 	 * Sets the y position
 	 * @param y the y to set
 	 */
-	public void setY(int y) {
+	public void setY(float y) {
 		this.y = y;
 	}
 
@@ -71,7 +71,7 @@ public abstract class GameObject {
 	 * Gets the x velocity
 	 * @return the velX
 	 */
-	public int getVelX() {
+	public float getVelX() {
 		return velX;
 	}
 
@@ -79,7 +79,7 @@ public abstract class GameObject {
 	 * Sets the object velocity
 	 * @param velX the velX to set
 	 */
-	public void setVelX(int velX) {
+	public void setVelX(float velX) {
 		this.velX = velX;
 	}
 
@@ -87,7 +87,7 @@ public abstract class GameObject {
 	 * Gets the y velocity
 	 * @return the velY
 	 */
-	public int getVelY() {
+	public float getVelY() {
 		return velY;
 	}
 
@@ -95,7 +95,7 @@ public abstract class GameObject {
 	 * Sets the y velocity
 	 * @param velY the velY to set
 	 */
-	public void setVelY(int velY) {
+	public void setVelY(float velY) {
 		this.velY = velY;
 	}
 	
