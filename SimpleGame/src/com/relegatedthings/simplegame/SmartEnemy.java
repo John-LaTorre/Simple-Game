@@ -8,6 +8,7 @@ public class SmartEnemy extends GameObject {
 
 	private Handler handler;
 	private GameObject player;
+	public static final int SIZE = 16;
 	
 	public SmartEnemy(float x, float y, ID id, Handler handler) {
 		super(x, y, id);
@@ -26,7 +27,7 @@ public class SmartEnemy extends GameObject {
 	}
 
 	public Rectangle getBounds() {
-		return new Rectangle((int) x, (int) y, 16, 16);
+		return new Rectangle((int) x, (int) y, SIZE, SIZE);
 	}
 	
 	public void tick() {
@@ -46,12 +47,12 @@ public class SmartEnemy extends GameObject {
 			velX *= -1;
 		}
 		
-		handler.addObject(new Trail((int) x, (int) y, ID.Trail, Color.green, 16, 16, .02f, handler));
+		handler.addObject(new Trail((int) x, (int) y, ID.Trail, Color.green, SIZE, SIZE, .02f, handler));
 	}
 
 	public void render(Graphics g) {
 		g.setColor(Color.green);
-		g.fillRect((int) x, (int) y, 16, 16);
+		g.fillRect((int) x, (int) y, SIZE, SIZE);
 		
 	}
 

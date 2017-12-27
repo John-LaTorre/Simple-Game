@@ -7,6 +7,7 @@ import java.awt.Rectangle;
 public class FastEnemy extends GameObject {
 
 	private Handler handler;
+	public static final int SIZE = 16;
 	
 	public FastEnemy(float x, float y, ID id, Handler handler) {
 		super(x, y, id);
@@ -18,7 +19,7 @@ public class FastEnemy extends GameObject {
 	}
 
 	public Rectangle getBounds() {
-		return new Rectangle((int) x, (int) y, 16, 16);
+		return new Rectangle((int) x, (int) y, SIZE, SIZE);
 	}
 	
 	public void tick() {
@@ -32,12 +33,12 @@ public class FastEnemy extends GameObject {
 			velX *= -1;
 		}
 		
-		handler.addObject(new Trail((int) x, (int) y, ID.Trail, Color.cyan, 16, 16, .02f, handler));
+		handler.addObject(new Trail((int) x, (int) y, ID.Trail, Color.cyan, SIZE, SIZE, .02f, handler));
 	}
 
 	public void render(Graphics g) {
 		g.setColor(Color.cyan);
-		g.fillRect((int) x, (int) y, 16, 16);
+		g.fillRect((int) x, (int) y, SIZE, SIZE);
 		
 	}
 
