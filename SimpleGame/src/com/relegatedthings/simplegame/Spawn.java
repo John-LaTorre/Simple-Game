@@ -7,7 +7,7 @@ public class Spawn {
 	private Handler handler;
 	private HUD hud;
 	private Random r = new Random();
-	private int scoreKeep = 0;
+	private static int scoreKeep = 0;
 	
 	
 	public Spawn(Handler handler, HUD hud) {
@@ -15,11 +15,14 @@ public class Spawn {
 		this.hud = hud;
 	}
 	
+	public static void setScorekeep(int set) {
+		scoreKeep = set;
+	}
 	public void tick() {
 		scoreKeep++;
 		if(scoreKeep >= 250) {
-			scoreKeep = 0;
-			hud.level(hud.getLevel() + 1);
+			setScorekeep(0);
+			hud.setLevel(hud.getLevel() + 1);
 			
 			
 			if(hud.getLevel() == 2) {

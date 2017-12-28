@@ -12,6 +12,8 @@ public class Player extends GameObject {
 	public static final int SIZE = 32;
 	public Player(float x, float y, ID id, Handler handler) {
 		super(x, y, id);
+		this.setVelX(0f);
+		this.setVelY(0f);
 		this.handler = handler;
 		
 	}

@@ -4,6 +4,7 @@ public enum ID {
 	
 	Player(),
 	Trail(),
+	MenuParticle(),
 	FastEnemy(),
 	SmartEnemy(),
 	BasicEnemy(),
