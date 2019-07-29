@@ -1,2 +1,2 @@
 # Simple-Game
-Just a game I made following along with a Youtube tutorial
+A game built in Java from following along with an online tutorial
